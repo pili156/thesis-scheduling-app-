@@ -53,7 +53,7 @@ pub fn get_phases_by_project(conn: &Connection, project_id: i64) -> Result<Vec<P
         if !phase_map.contains_key(&phase.id) {
             phase_order.push(phase.id);
             phase_map.insert(phase.id, PhaseWithDetails {
-                phase,
+                phase: phase.clone(),
                 subtasks: Vec::new(),
                 progress: 0.0,
             });
