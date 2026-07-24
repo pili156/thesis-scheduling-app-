@@ -1,50 +1,51 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ErrorBoundary } from "./components/layout/ErrorBoundary";
+import { Sidebar } from "./components/layout/Sidebar";
+import { DashboardPage } from "./pages/DashboardPage";
+import { TaskListPage } from "./pages/TaskListPage";
+import { TaskFormPage } from "./pages/TaskFormPage";
+import { TaskEditPage } from "./pages/TaskEditPage";
+import { ThesisPage } from "./pages/ThesisPage";
+import { ThesisFormPage } from "./pages/ThesisFormPage";
+import { PhaseFormPage } from "./pages/PhaseFormPage";
+import { SubtaskFormPage } from "./pages/SubtaskFormPage";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <div className="app-layout">
+          <Sidebar />
+          <main className="app-main">
+            <Routes>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/tasks" element={<TaskListPage />} />
+              <Route path="/tasks/new" element={<TaskFormPage />} />
+              <Route path="/tasks/:id/edit" element={<TaskEditPage />} />
+              <Route path="/thesis" element={<ThesisPage />} />
+              <Route path="/thesis/new" element={<ThesisFormPage />} />
+              <Route path="/thesis/:id/edit" element={<ThesisFormPage />} />
+              <Route
+                path="/thesis/:projectId/phase/new"
+                element={<PhaseFormPage />}
+              />
+              <Route
+                path="/thesis/:projectId/phase/:phaseId/edit"
+                element={<PhaseFormPage />}
+              />
+              <Route
+                path="/thesis/:projectId/phase/:phaseId/subtask/new"
+                element={<SubtaskFormPage />}
+              />
+              <Route
+                path="/thesis/:projectId/phase/:phaseId/subtask/:subtaskId/edit"
+                element={<SubtaskFormPage />}
+              />
+            </Routes>
+          </main>
+        </div>
+      </ErrorBoundary>
+    </BrowserRouter>
   );
 }
 
