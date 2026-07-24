@@ -2,5 +2,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
+    env_logger::init();
     schedule_thesis_app_lib::run()
 }
