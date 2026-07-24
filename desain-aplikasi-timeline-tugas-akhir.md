@@ -1,9 +1,11 @@
 # DESAIN APLIKASI TIMELINE, TRACKING, CHECKLIST, PENJADWALAN KEGIATAN DAN TUGAS AKHIR
 
 ## Global Style
-- Latar belakang aplikasi akan berwarna `#1D185D`
-- Garis pembatas antar widget seperti menu samping dan atas berwarna `#8F2EFF`
-- Teks dari aplikasi akan berwarna `#E6E6E6`
+- Latar belakang aplikasi akan berwarna #A4B885
+- Garis pembatas antar widget seperti menu samping dan atas berwarna #D46D25
+- Warna tombol 1 #FDC086
+- Warna tombol 2 #FFF6A1
+- Teks dari aplikasi akan berwarna #2d2e20
 - Warna dari menu atas dan samping `#2D248C`
 - Ketika kursor berada di atas tombol maka tombol akan berwarna `#3F2FD0`
 - Warna dari status belum `#B05600`
@@ -13,7 +15,7 @@
   - Prioritas Tinggi `#D6002A`
   - Prioritas Sedang `#D6A400`
   - Prioritas Rendah `#3F8F2E`
-
+  
 ## Halaman 1 - Dashboard
 - Halaman Dashboard yang menunjukkan kalender 30 hari
 - Terdapat data berapa banyak kegiatan dan tugas yang perlu dilakukan 3 hari, 7 hari, 30 hari dan 90 hari kedepan
@@ -76,6 +78,14 @@
 - **[Fitur Baru] Pencarian dan Filter Lanjutan**
   - Kolom pencarian untuk mencari project tugas akhir atau tugas di dalam phase berdasarkan nama
   - Filter berdasarkan status tugas dan berdasarkan fase (phase) tertentu
+
+Halaman 3.1 - Halaman ini digunakan untuk membuat tugas akhir yang akan dikerjakan.
+            - Pada halaman ini akan terdapat beberapa form data seperti nama tugas akhir, tanggal mulai hingga selesai tugas akhir, isi data pembimbing, isi data partner projek, keterangan projek tugas akhir, phase tugas akhir.
+            - Pada bagian phase tugas akhir user dapat menentukan berapa banyak jumlah phase yang dibutuhkan dan menentukan nama phasenya(Contoh : user menambahkan 3 phase. phase proposal, phase literatur review, dan phase praktek)
+            - Pada setiap phase user dapat menambahkan beberapa tugas pada phase tersebut (Contoh : pada phase proposal, tugas pada phase tersebut adalah mencari ide, membandingkan ide, menentukan latar belakang, dan lainnya)
+            - setiap tugas dapat diberikan waktu yang dibutuhkan dalam penyelesaiannya dengan menggunakan form (Contoh : Tugas Mencari Ide akan diberikan waktu 2 hari)
+            - ketika tombol isi data pembimbing ditekan maka akan muncul Pop Up 3.2
+            - ketika tombol isi data partner projek ditekan maka akan muncul Pop Up 3.3
 
 ## Pop Up 3.1 - Data Pembimbing
 - Pop Up ini hanya berguna untuk menampilkan data pembimbing tugas akhir yang berisikan nama, nomor telpon, dan email

@@ -20,7 +20,7 @@ Aplikasi Timeline, Tracking, Checklist, dan Penjadwalan Kegiatan Tugas Akhir ber
 - Form lengkap: nama, tanggal, keterangan, prioritas
 - Kalender interaktif untuk memilih tanggal
 - 🧠 **Smart Date Parser** - ketik natural seperti "besok jam 3 sore"
-- 🔄 Pengaturan tugas berulang (harian, mingguan, bulanan, kustom)
+- 🔄 Pengaturan tugas berulang  mingguan, bulanan, kustom)
 
 ### Halaman List Tugas Akhir
 - 📂 Dropdown project dengan progress bar dinamis
