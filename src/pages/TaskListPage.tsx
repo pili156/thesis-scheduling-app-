@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTasks } from "../hooks/useTasks";
 import { TaskTable } from "../components/tasks/TaskTable";
@@ -29,7 +29,7 @@ export function TaskListPage() {
     }
   }, [searchParams, setFilters]);
 
-  const filteredTasks = useMemo(() => getFilteredTasks(), [getFilteredTasks, filters]);
+  const filteredTasks = getFilteredTasks();
 
   const handleDelete = async (id: number) => {
     if (window.confirm("Yakin ingin menghapus tugas ini?")) {

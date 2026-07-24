@@ -15,8 +15,6 @@ interface TaskStore {
   filters: TaskFilters;
   loading: boolean;
   error: string | null;
-  _filteredVersion: number;
-  _filteredCache: Task[] | null;
 
   fetchTasks: () => Promise<void>;
   refreshOverdueTasks: () => Promise<void>;
@@ -38,14 +36,12 @@ export const useTasks = create<TaskStore>((set, get) => ({
   },
   loading: false,
   error: null,
-  _filteredVersion: 0,
-  _filteredCache: null,
 
   fetchTasks: async () => {
     set({ loading: true, error: null });
     try {
       const tasks = await api.getTasks();
-      set({ tasks, loading: false, _filteredVersion: get()._filteredVersion + 1 });
+      set({ tasks, loading: false });
     } catch (error) {
       set({ error: String(error), loading: false });
     }
@@ -55,7 +51,7 @@ export const useTasks = create<TaskStore>((set, get) => ({
     try {
       await api.updateOverdueTasks();
       const tasks = await api.getTasks();
-      set({ tasks, error: null, _filteredVersion: get()._filteredVersion + 1 });
+      set({ tasks, error: null });
     } catch (error) {
       set({ error: String(error) });
     }
@@ -64,7 +60,7 @@ export const useTasks = create<TaskStore>((set, get) => ({
   addTask: async (data) => {
     try {
       const task = await api.createTask(data);
-      set((state) => ({ tasks: [...state.tasks, task], error: null, _filteredVersion: state._filteredVersion + 1 }));
+      set((state) => ({ tasks: [...state.tasks, task], error: null }));
       return task;
     } catch (error) {
       set({ error: String(error) });
@@ -78,7 +74,6 @@ export const useTasks = create<TaskStore>((set, get) => ({
       set((state) => ({
         tasks: state.tasks.map((t) => (t.id === id ? task : t)),
         error: null,
-        _filteredVersion: state._filteredVersion + 1,
       }));
       return task;
     } catch (error) {
@@ -93,7 +88,6 @@ export const useTasks = create<TaskStore>((set, get) => ({
       set((state) => ({
         tasks: state.tasks.map((t) => (t.id === id ? task : t)),
         error: null,
-        _filteredVersion: state._filteredVersion + 1,
       }));
 
       if (status === "Selesai" && shouldCreateNextInstance(task)) {
@@ -102,7 +96,7 @@ export const useTasks = create<TaskStore>((set, get) => ({
           const nextDate = nextData.date;
           await api.createRecurringTaskInstance(id, nextDate);
           const updatedTasks = await api.getTasks();
-          set({ tasks: updatedTasks, _filteredVersion: get()._filteredVersion + 1 });
+          set({ tasks: updatedTasks });
         }
       }
 
@@ -118,7 +112,6 @@ export const useTasks = create<TaskStore>((set, get) => ({
       set((state) => ({
         tasks: state.tasks.filter((t) => t.id !== id),
         error: null,
-        _filteredVersion: state._filteredVersion + 1,
       }));
     } catch (error) {
       set({ error: String(error) });
@@ -128,15 +121,11 @@ export const useTasks = create<TaskStore>((set, get) => ({
   setFilters: (newFilters) => {
     set((state) => ({
       filters: { ...state.filters, ...newFilters },
-      _filteredVersion: state._filteredVersion + 1,
     }));
   },
 
   getFilteredTasks: () => {
-    const { tasks, filters, _filteredVersion, _filteredCache } = get();
-    if (_filteredCache && get()._filteredVersion === _filteredVersion) {
-      return _filteredCache;
-    }
+    const { tasks, filters } = get();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -182,7 +171,6 @@ export const useTasks = create<TaskStore>((set, get) => ({
         return diffA - diffB;
       });
 
-    set({ _filteredCache: result });
     return result;
   },
 }));
