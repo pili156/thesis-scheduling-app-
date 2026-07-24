@@ -19,25 +19,25 @@ Aplikasi Timeline, Tracking, Checklist, dan Penjadwalan Kegiatan Tugas Akhir ber
 ### Halaman Tambah & Edit Tugas
 - Form lengkap: nama, tanggal, keterangan, prioritas
 - Kalender interaktif untuk memilih tanggal
-- 🧠 **Smart Date Parser** — ketik natural seperti "besok jam 3 sore"
-- 🔄 Pengaturan tugas berulang (mingguan, bulanan, kustom)
+- **Smart Date Parser** — ketik natural seperti "besok jam 3 sore"
+- Pengaturan tugas berulang (mingguan, bulanan, kustom)
 
 ### Halaman List Tugas Akhir
-- 📂 Dropdown project dengan progress bar dinamis
-- 📊 Progress bar real-time per phase dan keseluruhan project
-- 👥 Data pembimbing dan partner project
-- ⏳ Waktu tersisa per tugas
+- Dropdown project dengan progress bar dinamis
+- Progress bar real-time per phase dan keseluruhan project
+- Data pembimbing dan partner project
+- Waktu tersisa per tugas
 
 ### Pop Up Data Pembimbing
-- 📱 Nama, nomor telepon, email pembimbing
-- ⚡ Aksi cepat: WhatsApp (deep link `wa.me`) dan Gmail compose
-- ➕ Tambah multiple pembimbing
+- Nama, nomor telepon, email pembimbing
+- Aksi cepat: WhatsApp (deep link `wa.me`) dan Gmail compose
+- Tambah multiple pembimbing
 
 ### Pop Up Partner Project
-- 👤 Nama, nomor telepon, email partner
-- ➕ Tambah multiple partner
+- Nama, nomor telepon, email partner
+- Tambah multiple partner
 
-## 🎨 Tema Warna
+## Tema Warna
 
 | Elemen | Warna |
 |--------|-------|
@@ -55,7 +55,7 @@ Aplikasi Timeline, Tracking, Checklist, dan Penjadwalan Kegiatan Tugas Akhir ber
 - 🟡 Sedang: `#D6A400`
 - 🟢 Rendah: `#3F8F2E`
 
-## 📖 Tentang
+## Tentang
 
 **Schedule Thesis App** adalah aplikasi desktop berbasis Tauri yang membantu mahasiswa menyusun, menjadwalkan, dan melacak progres tugas akhir. Aplikasi ini menyediakan kalender interaktif, manajemen tugas dengan prioritas, fitur tugas berulang, pelacakan progress proyek tugas akhir, serta manajemen data pembimbing dan partner proyek.
 
@@ -107,18 +107,18 @@ Aplikasi Timeline, Tracking, Checklist, dan Penjadwalan Kegiatan Tugas Akhir ber
 - `phone` — Nomor telepon
 - `email` — Email
 
-## 🚀 Instalasi
+## Instalasi
 
 ### Prasyarat
 
 Sebelum menginstal, pastikan Anda telah menginstal tool berikut:
 
-| Tool | Versi Minimum | Instalasi |
-|------|--------------|-----------|
-| **Node.js** | v18+ | [nodejs.org](https://nodejs.org/) atau `nvm install 18` |
-| **Rust** | v1.70+ | [rustup.rs](https://rustup.rs/) atau `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
-| **Cargo** | (ikut Rust) | Terinstal otomatis bersama Rust via rustup |
-| **npm** | (ikut Node.js) | Terinstal otomatis bersama Node.js |
+| Tool    | Versi Minimum | Instalasi                                                                      |
+|---------|---------------|--------------------------------------------------------------------------------|
+| **Node.js** | v18+          | [nodejs.org](https://nodejs.org/) atau `nvm install 18`                                                 |
+| **Rust**    | v1.70+        | [rustup.rs](https://rustup.rs/) atau `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
+| **Cargo**   | (ikut Rust)   | Terinstal otomatis bersama Rust via rustup                                     |
+| **npm**     | (ikut Node.js)| Terinstal otomatis bersama Node.js                                             |
 
 Untuk Linux, Anda juga mungkin perlu menginstal beberapa dependensi build:
 
